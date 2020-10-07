@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/transparent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="4dp">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@color/colorPrimary"
+                    android:elevation="4dp"
+                    app:layout_scrollFlags="scroll|enterAlways"
+                    app:titleTextColor="@color/colorAccent" >
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/phonepost_color"
+                        android:text="@string/app_name"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/language_button"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:padding="8dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="?selectableItemBackgroundBorderless"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:srcCompat="@drawable/ic_language_pic" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.appcompat.widget.Toolbar>
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/chatscreen_background">
+
+                <ScrollView
+                    android:id="@+id/scrollview"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:fillViewport="true"
+                    app:layout_constraintBottom_toTopOf="@+id/recorder_pane"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:paddingBottom="16dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/msg_holder"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginBottom="8dp"
+                            android:elevation="0dp"
+                            android:visibility="visible"
+                            app:cardCornerRadius="20dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:animateLayoutChanges="true"
+                                android:orientation="vertical">
+
+                                <EditText
+                                    android:id="@+id/msg"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:background="@color/outgoing_bubble_color"
+                                    android:enabled="true"
+                                    android:gravity="start|top"
+                                    android:padding="16dp"
+                                    android:textColor="@color/black"
+                                    android:inputType="textFilter|textMultiLine|textNoSuggestions"/>
+
+                                <LinearLayout
+                                    android:id="@+id/options"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="36dp"
+                                    android:background="@color/white"
+                                    android:gravity="center_vertical|end"
+                                    android:orientation="horizontal"
+                                    android:paddingStart="16dp"
+                                    android:paddingEnd="16dp"
+                                    app:layout_constraintBottom_toBottomOf="parent">
+
+                                    <ImageView
+                                        android:id="@+id/clear"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="18dp"
+                                        android:layout_weight="1"
+                                        android:background="?attr/selectableItemBackgroundBorderless"
+                                        android:tint="@color/colorAccent"
+                                        app:rippleColor="@color/grey6"
+                                        app:srcCompat="@drawable/ic_clear"
+                                        />
+
+                                    <ImageView
+                                        android:id="@+id/option_share"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="18dp"
+                                        android:layout_weight="1"
+                                        android:background="?attr/selectableItemBackgroundBorderless"
+                                        android:tint="@color/colorAccent"
+                                        app:rippleColor="@color/grey6"
+                                        app:srcCompat="@drawable/ic_share" />
+
+                                <!--    <ImageView
+                                        android:id="@+id/option_phonepost"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="20dp"
+                                        android:layout_weight="1"
+                                        android:background="?attr/selectableItemBackgroundBorderless"
+                                        app:rippleColor="@color/grey6"
+                                        app:srcCompat="@drawable/ic_phonepost" />-->
+
+                                    <ImageView
+                                        android:id="@+id/option_whatsapp"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="27dp"
+                                        android:layout_marginTop="2dp"
+                                        android:layout_weight="1"
+                                        android:background="?attr/selectableItemBackgroundBorderless"
+                                        app:rippleColor="@color/grey6"
+                                        app:srcCompat="@drawable/whatsapp_icon" />
+
+
+                                    <FrameLayout
+                                        android:id="@+id/option_whatsapp_direct"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="33dp"
+                                        android:layout_marginTop="2dp"
+                                        android:layout_weight="1"
+                                        android:clickable="true"
+                                        android:focusable="true"
+                                        app:rippleColor="@color/grey6">
+
+                                        <ImageView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="2dp"
+                                            android:layout_marginTop="1dp"
+                                            android:layout_gravity="top|center_horizontal"
+                                            app:srcCompat="@drawable/ic_whatsapp_direct" />
+
+                                        <ImageView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="27dp"
+                                            android:layout_gravity="bottom"
+                                            android:layout_marginBottom="3dp"
+                                            android:layout_weight="1"
+                                            android:background="?attr/selectableItemBackgroundBorderless"
+                                            app:srcCompat="@drawable/whatsapp_icon" />
+                                    </FrameLayout>
+
+                                    <ImageView
+                                        android:id="@+id/option_copy"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="22dp"
+                                        android:layout_weight="1"
+                                        android:background="?attr/selectableItemBackgroundBorderless"
+                                        android:tint="@color/colorAccent"
+                                        app:rippleColor="@color/grey6"
+                                        app:srcCompat="@drawable/ic_copy" />
+
+                                </LinearLayout>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                    </RelativeLayout>
+                </ScrollView>
+
+                <FrameLayout
+                    android:id="@+id/recorder_pane"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="56dp"
+                    android:animateLayoutChanges="true"
+                    android:background="@color/transparent"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <View
+                        android:id="@+id/bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_gravity="bottom"
+                        android:background="@drawable/background_bottom_bar_rounded" />
+
+                    <FrameLayout
+                        android:id="@+id/keyboard"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:layout_marginEnd="90dp"
+                        android:background="@drawable/background_circle_post"
+                        android:backgroundTint="@color/white"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:layout_constraintEnd_toStartOf="@+id/record">
+
+                        <ImageView
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:layout_gravity="center"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:padding="11dp"
+                            android:tint="@color/text_accent_light"
+                            app:rippleColor="@color/grey6"
+                            app:srcCompat="@drawable/ic_keyboard" />
+
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/record"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:layout_marginBottom="16dp"
+                        android:background="@drawable/background_circle_post"
+                        android:backgroundTint="@color/phonepost_color"
+                        android:clickable="true"
+                        android:elevation="10dp"
+                        android:focusable="true">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:padding="13dp"
+                            android:tint="@color/white"
+                            app:srcCompat="@drawable/ic_microphone" />
+
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:id="@+id/format_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_gravity="bottom"
+                        android:background="@android:color/transparent"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="68dp"
+                        android:weightSum="9">
+
+                        <ImageView
+                            android:id="@+id/format_space"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:paddingTop="17.5dp"
+                            android:paddingBottom="17.5dp"
+                            android:alpha="0.3"
+                            android:tint="@color/colorAccent"
+                            app:rippleColor="@color/grey6"
+                            app:srcCompat="@drawable/ic_space" />
+
+                        <ImageView
+                            android:id="@+id/format_comma"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:paddingTop="18dp"
+                            android:paddingBottom="18dp"
+                            android:alpha="0.3"
+                            android:tint="@color/colorAccent"
+                            app:rippleColor="@color/grey6"
+                            app:srcCompat="@drawable/ic_comma" />
+
+                        <ImageView
+                            android:id="@+id/format_backspace"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:paddingTop="12.5dp"
+                            android:paddingBottom="12.5dp"
+                            android:alpha="0.3"
+                            android:tint="@color/colorAccent"
+                            app:rippleColor="@color/grey6"
+                            app:srcCompat="@drawable/ic_backspace" />
+
+                        <ImageView
+                            android:id="@+id/format_dot"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:paddingTop="20dp"
+                            android:paddingBottom="20dp"
+                            android:tint="@color/colorAccent"
+                            android:alpha="0.3"
+                            app:rippleColor="@color/grey6"
+                            app:srcCompat="@drawable/ic_dot" />
+
+                        <ImageView
+                            android:id="@+id/format_enter"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:paddingTop="14.5dp"
+                            android:paddingBottom="14.5dp"
+                            android:alpha="0.3"
+                            android:tint="@color/colorAccent"
+                            app:rippleColor="@color/grey6"
+                            app:srcCompat="@drawable/ic_enter" />
+                    </LinearLayout>
+                </FrameLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/recording_pane"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:visibility="gone"
+                    app:cardBackgroundColor="@color/transparent"
+                    app:cardCornerRadius="0dp"
+                    app:cardElevation="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:background="@color/white"
+                        android:elevation="6dp"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/record_cancel"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_marginStart="16dp"
+                            android:background="@drawable/background_circle_post"
+                            android:backgroundTint="@color/white"
+                            android:elevation="16dp"
+                            android:foreground="?attr/selectableItemBackgroundBorderless"
+                            android:padding="16dp"
+                            android:tint="@color/text_accent_light"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ic_close" />
+
+                        <LinearLayout
+                            android:id="@+id/timer_layout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <LinearLayout
+                                android:id="@+id/recording_view"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <View
+                                    android:id="@+id/dot"
+                                    android:layout_width="10dp"
+                                    android:layout_height="10dp"
+                                    android:background="@drawable/round_red_dot" />
+
+                                <app.phonepost.CustomChronometer
+                                    android:id="@+id/recordingTimer"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:textColor="@color/md_red_500"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/recording_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/recording"
+                                android:textColor="@color/md_red_500"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/recordPause"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="16dp"
+                            android:background="@drawable/background_circle_post"
+                            android:backgroundTint="@color/phonepost_color"
+                            android:elevation="16dp"
+                            android:foreground="?attr/selectableItemBackgroundBorderless"
+                            android:gravity="center"
+                            android:padding="12dp"
+                            android:tint="@color/white"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ic_send" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/help_msg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/typing_pad_help_record"
+                    android:textSize="22sp"
+                    android:textColor="#4A948488"
+                    android:textAlignment="center"
+                    app:layout_constraintBottom_toBottomOf="@id/scrollview"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginBottom="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/scrollview" />
+
+                <FrameLayout
+                    android:id="@+id/record2"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/background_circle_post"
+                    android:backgroundTint="@color/phonepost_color"
+                    android:clickable="true"
+                    android:elevation="10dp"
+                    android:focusable="true"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:padding="9dp"
+                        android:tint="@color/white"
+                        app:srcCompat="@drawable/ic_microphone" />
+
+                </FrameLayout>
+
+                <ProgressBar
+                    android:id="@+id/progress"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="10dp"
+                    android:indeterminate="true"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

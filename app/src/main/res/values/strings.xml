@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">PhonePost</string>
+    <string name="recording">Recording...</string>
+    <string name="typing_pad_help_record">Speak, Edit and Share</string>
+
+    <string name="tooltip_typing_pad_text">Please Speak.\nRecording is ON!</string>
+
+    <string name="audio_permission_error">Please give the app the permission to record the audio.</string>
+    <string name="set_as_default_for_this_user">Set this as default for %s</string>
+    <string name="typing_pad_help_done">Press Send Icon to see translated message</string>
+    <string name="permission_request">Please provide the requested permissions, otherwise the app will not function as
+        expected.
+    </string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="submit">Submit</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="transcription_failed_message">There was some problem!</string>
+    <string name="save">Save</string>
+    <string name="tag_language_picker">language_picker_tag</string>
+    <string name="incorrect_number">Incorrect Phone Number</string>
+    <string name="please_select_the_language_of_this_post">
+        <u>What language are you going to speak?</u>
+    </string>
+    <string name="whatsapp_direct_note">You can send this post to anyone without saving their number in your phone book</string>
+    <string name="enter_contact_number">Enter Number</string>
+</resources>

@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp">
+
+        <TextView
+            android:id="@+id/tvToolbarTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:padding="10dp"
+            android:paddingStart="10dp"
+            android:text="My Languages"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/llText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvToolbarTitle"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvALL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" ALL "
+                android:textColor="@color/phonepost_color"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="languages you speak"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/bt_save_language"
+            android:layout_below="@+id/llText"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/languages_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fadeScrollbars="true"
+                android:scrollbarSize="3dp"
+                android:scrollbarThumbVertical="@color/grey9"
+                android:scrollbars="vertical" />
+
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_save_language"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="10dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorPrimary"
+            android:contentDescription="@string/submit"
+            android:text="@string/save"
+            android:textColor="@color/white"
+            app:cornerRadius="28dp"
+            app:backgroundTint="@color/colorLoginButton" />
+
+    </RelativeLayout>
+
+    <!--    <LinearLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:orientation="vertical">-->
+
+    <!--        <androidx.appcompat.widget.Toolbar-->
+    <!--            android:id="@+id/toolbar"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="?attr/actionBarSize"-->
+    <!--            android:layout_alignParentTop="true"-->
+    <!--            android:background="@color/colorPrimary"-->
+    <!--            android:gravity="center"-->
+    <!--            android:theme="@style/AppTheme.Toolbar"-->
+    <!--            app:layout_constraintTop_toTopOf="parent"-->
+    <!--            app:popupTheme="@style/AppTheme.Toolbar.Popup"-->
+    <!--            app:titleTextColor="@color/colorAccent">-->
+
+    <!--            <LinearLayout-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:gravity="center"-->
+    <!--                android:orientation="horizontal">-->
+
+    <!--                &lt;!&ndash;                <androidx.appcompat.widget.AppCompatImageView&ndash;&gt;-->
+    <!--                &lt;!&ndash;                    android:id="@+id/back"&ndash;&gt;-->
+    <!--                &lt;!&ndash;                    android:layout_width="30dp"&ndash;&gt;-->
+    <!--                &lt;!&ndash;                    android:layout_height="30dp"&ndash;&gt;-->
+    <!--                &lt;!&ndash;                    android:background="?selectableItemBackgroundBorderless"&ndash;&gt;-->
+    <!--                &lt;!&ndash;                    android:tint="@color/colorAccent"&ndash;&gt;-->
+    <!--                &lt;!&ndash;                    app:srcCompat="@drawable/ic_arrow_back" />&ndash;&gt;-->
+
+    <!--                <TextView-->
+    <!--                    android:id="@+id/tvToolbarTitle"-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:paddingStart="10dp"-->
+    <!--                    android:text="My Languages"-->
+    <!--                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"-->
+    <!--                    android:textColor="@color/black"-->
+    <!--                    android:textStyle="bold" />-->
+
+    <!--            </LinearLayout>-->
+
+    <!--        </androidx.appcompat.widget.Toolbar>-->
+
+    <!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content">-->
+
+    <!--            <View-->
+    <!--                android:id="@+id/dummyToolbar"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="?attr/actionBarSize"-->
+    <!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--            <LinearLayout-->
+    <!--                android:id="@+id/llText"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:orientation="horizontal"-->
+    <!--                android:padding="10dp"-->
+    <!--                app:layout_constraintBottom_toTopOf="@+id/linearLayout"-->
+    <!--                app:layout_constraintTop_toBottomOf="@+id/dummyToolbar">-->
+
+    <!--                <TextView-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:text="Select"-->
+    <!--                    android:textColor="@color/black"-->
+    <!--                    android:textStyle="bold" />-->
+
+    <!--                <TextView-->
+    <!--                    android:id="@+id/tvALL"-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:text=" ALL "-->
+    <!--                    android:textColor="@color/black"-->
+    <!--                    android:textStyle="bold" />-->
+
+    <!--                <TextView-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:text="languages you speak"-->
+    <!--                    android:textColor="@color/black"-->
+    <!--                    android:textStyle="bold" />-->
+    <!--            </LinearLayout>-->
+
+    <!--            <LinearLayout-->
+    <!--                android:id="@+id/linearLayout"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:orientation="vertical"-->
+    <!--                android:padding="10dp"-->
+    <!--                app:layout_constraintBottom_toTopOf="@+id/bt_save_language"-->
+    <!--                app:layout_constraintTop_toBottomOf="@+id/llText">-->
+
+    <!--                <androidx.recyclerview.widget.RecyclerView-->
+    <!--                    android:id="@+id/languages_list"-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:fadeScrollbars="true"-->
+    <!--                    android:scrollbarSize="3dp"-->
+    <!--                    android:scrollbarThumbVertical="@color/grey9"-->
+    <!--                    android:scrollbars="vertical" />-->
+
+    <!--            </LinearLayout>-->
+
+    <!--            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton-->
+    <!--                android:id="@+id/bt_save_language"-->
+    <!--                style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_alignParentEnd="true"-->
+    <!--                android:layout_alignParentBottom="true"-->
+    <!--                android:layout_margin="10dp"-->
+    <!--                android:background="@color/colorPrimary"-->
+    <!--                android:contentDescription="@string/submit"-->
+    <!--                android:text="@string/save"-->
+    <!--                android:textColor="@color/white"-->
+    <!--                app:backgroundTint="@color/colorLoginButton"-->
+    <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--                app:layout_constraintEnd_toEndOf="parent"-->
+    <!--                app:layout_constraintStart_toStartOf="parent" />-->
+
+
+    <!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+    <!--    </LinearLayout>-->
+
+
+</layout>
